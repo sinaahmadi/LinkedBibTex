@@ -31,5 +31,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+*.bbl
+*.blg
+*.log
+*.pdf
+*.aux
 # End of https://www.toptal.com/developers/gitignore/api/macos
 

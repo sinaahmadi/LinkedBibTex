@@ -10,6 +10,9 @@ import bibtex_dblp.dblp_api
 import bibtex_dblp.database
 from bibtex_dblp.dblp_api import BibFormat
 
+# 25062021
+# - look for the file name in the tex file
+
 def extract_cite_key(text):
     """
     Given a text, return all reference keys in citation commands.
@@ -52,7 +55,7 @@ if __name__ == '__main__':
         # only run queries for new keys which do not exist in the `bibkeys` file
         if cite_key not in bibkeys and cite_key not in bibtex_file:
             try:
-                bibtex_file[cite_key] = bibtex_dblp.dblp_api.get_bibtex(cite_key, bib_format=BibFormat.standard)
+                bibtex_file[cite_key] = bibtex_dblp.dblp_api.get_bibtex(cite_key, bib_format=BibFormat.standard).replace("{DBLP:", "{")
             except:
                 continue
 
