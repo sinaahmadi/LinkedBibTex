@@ -1,7 +1,7 @@
 # LinkedBibTex
 ## A solution to make your BibTex files automatically
 
-This is repository provides a simple solution **to automatically create and manage your bibliography file** in [`BibTex`](https://en.wikipedia.org/wiki/BibTeX) using [DBLP](https://dblp.org). It saves author's time of modifying your `.bib` file back and forth. Here it is how it works:
+This repository provides a simple solution **to automatically create and manage your bibliography file** in [`BibTex`](https://en.wikipedia.org/wiki/BibTeX) using [DBLP](https://dblp.org). It saves time of modifying your `.bib` file back and forth. Here it is how it works:
 
 Each entry on [DBLP](https://dblp.org) has a unique identifier called `dblp key` which is provided down below the export button of each article (see [this article](https://dblp.org/rec/journals/cacm/Knuth74), for example). When citing a reference, the author cites using `dblp key` as in `\cite{dblp key}` without importing the bibliographic entry in the `.bibtex` file. This solution creates the `.bib` file automatically for you when compiling the `.tex` file and the author would not need to import bibliographic data manually any more.
 
