@@ -3,7 +3,7 @@
 
 This is a simple solution **to automatically create and manage your bibliography file** in [`BibTex`](https://en.wikipedia.org/wiki/BibTeX) using [DBLP](https://dblp.org). It is going to save your time by avoiding modifying your `.bib` file back and forth. Here it is how:
 
-Each entry on [DBLP](https://dblp.org) has a unique identifier called `dblp key` which is provided down below the export button of each article. When citing a reference, the author cites using `dblp key` as in `\cite{dblp key}` without importing the bibliographic entry in the `.bibtex` file. This solution creates the `.bib` file automatically for you when compiling the `.tex` file.
+Each entry on [DBLP](https://dblp.org) has a unique identifier called `dblp key` which is provided down below the export button of each article (see [this article](https://dblp.org/rec/journals/cacm/Knuth74), for example). When citing a reference, the author cites using `dblp key` as in `\cite{dblp key}` without importing the bibliographic entry in the `.bibtex` file. This solution creates the `.bib` file automatically for you when compiling the `.tex` file.
 
 #### Requirements
 - Python

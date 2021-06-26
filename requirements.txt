@@ -1,0 +1,1 @@
+bibtex-dblp>=0.5 

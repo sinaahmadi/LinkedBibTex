@@ -1,6 +1,9 @@
 """
     This script retrieves bibliographic data from DBLP according to the citaiton keys used with a .tex file (bibtex or natbib).
     The references.bib is updated whenever a new entry is cited.
+
+    Sina Ahmadi
+    June 2021
 """
 import sys
 import re
@@ -10,8 +13,6 @@ import bibtex_dblp.dblp_api
 import bibtex_dblp.database
 from bibtex_dblp.dblp_api import BibFormat
 
-# 25062021
-# - look for the file name in the tex file
 
 def extract_cite_key(text):
     """
@@ -40,11 +41,16 @@ if __name__ == '__main__':
     with open(args.tex_filename, "r") as f: 
         text = f.read()
 
+    if len(re.findall(r"\\bibliography{(.*)}", text)[0].strip()) != "":
+        reference_file_name = re.findall(r"\\bibliography{(.*)}", text)[0].strip() + ".bib"
+    else:
+        reference_file_name = "references.bib"
+
     citation_keys = list(set([i.strip() for i in extract_cite_key(text)]))
 
     # reading `bibkeys` file containing bibliographic entries which are previously imported
-    if os.path.exists("bibkeys"):
-        with open("bibkeys", "r") as f:
+    if os.path.exists(".bibkeys"):
+        with open(".bibkeys", "r") as f:
             bibkeys = f.read().split("\n")
     else:
         bibkeys = list()
@@ -62,22 +68,8 @@ if __name__ == '__main__':
     # save keys in a hidden file if bib file is to be updated.
     if len(bibtex_file):
         print("saving")
-        with open("bibkeys", "a") as f:
+        with open(".bibkeys", "a") as f:
             f.write("\n".join(list(bibtex_file.keys())) + "\n")
 
-        with open("references.bib", "a") as f:
+        with open(reference_file_name, "a") as f:
             f.write("\n".join(list(bibtex_file.values())) + "\n")
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
